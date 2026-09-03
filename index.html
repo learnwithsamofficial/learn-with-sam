@@ -26,8 +26,6 @@
             flex-direction: column;
         }
 
-        /* NAVBAR */
-
         .navbar {
             width: 100%;
             padding: 18px 7%;
@@ -62,8 +60,6 @@
             font-size: 14px;
             color: #667085;
         }
-
-        /* HERO */
 
         .hero {
             flex: 1;
@@ -134,8 +130,6 @@
             border-radius: 11px;
             font-weight: 700;
         }
-
-        /* DASHBOARD CARD */
 
         .preview {
             position: relative;
@@ -228,8 +222,6 @@
             color: #7b8494;
         }
 
-        /* FEATURES */
-
         .features {
             width: 90%;
             max-width: 1150px;
@@ -262,22 +254,46 @@
             line-height: 1.6;
         }
 
-        /* FOOTER */
+        /* PROFESSIONAL FOOTER */
 
         footer {
             text-align: center;
-            padding: 24px 15px;
+            padding: 30px 20px;
+            margin-top: 40px;
+            background: #ffffff;
+            border-top: 1px solid #e5eaf2;
             color: #7b8494;
             font-size: 13px;
-            border-top: 1px solid #e5eaf2;
-            background: white;
+            line-height: 1.8;
         }
 
-        footer strong {
+        footer p {
+            margin: 6px 0;
+        }
+
+        footer p:first-child {
+            color: #172033;
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        footer a {
             color: #2563eb;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s ease;
         }
 
-        /* MOBILE */
+        footer a:hover {
+            color: #4f46e5;
+            text-decoration: underline;
+        }
+
+        footer p:last-child {
+            color: #98a2b3;
+            font-size: 12px;
+            margin-top: 10px;
+        }
 
         @media (max-width: 800px) {
 
@@ -314,7 +330,7 @@
             }
         }
 
-        @media (max-width: 430px) {
+        @media (max-width: 500px) {
 
             .hero {
                 width: 88%;
@@ -337,6 +353,16 @@
             .mini-grid {
                 grid-template-columns: 1fr;
             }
+
+            footer {
+                padding: 25px 15px;
+                font-size: 12px;
+            }
+
+            footer a {
+                display: inline-block;
+                margin: 2px 3px;
+            }
         }
     </style>
 </head>
@@ -344,8 +370,6 @@
 <body>
 
 <div class="welcome-page">
-
-    <!-- NAVBAR -->
 
     <nav class="navbar">
 
@@ -360,8 +384,6 @@
 
     </nav>
 
-
-    <!-- HERO -->
 
     <main class="hero">
 
@@ -384,9 +406,9 @@
 
             <div class="buttons">
 
-                <a href="./home.html" class="primary-btn">
-    Get Started →
-</a>
+                <a href="home.html" class="primary-btn">
+                    Get Started →
+                </a>
 
                 <a href="books.html" class="secondary-btn">
                     Explore Materials
@@ -396,8 +418,6 @@
 
         </div>
 
-
-        <!-- DASHBOARD PREVIEW -->
 
         <div class="preview">
 
@@ -465,17 +485,13 @@
     </main>
 
 
-    <!-- FEATURES -->
-
     <section class="features">
 
         <div class="feature">
 
             <div class="feature-icon">📖</div>
 
-            <h3>
-                Quality Study Material
-            </h3>
+            <h3>Quality Study Material</h3>
 
             <p>
                 Find notes, questions and learning resources
@@ -489,9 +505,7 @@
 
             <div class="feature-icon">⚡</div>
 
-            <h3>
-                Study Efficiently
-            </h3>
+            <h3>Study Efficiently</h3>
 
             <p>
                 Use the timer and timetable to build a
@@ -505,9 +519,7 @@
 
             <div class="feature-icon">📈</div>
 
-            <h3>
-                Track Your Progress
-            </h3>
+            <h3>Track Your Progress</h3>
 
             <p>
                 Keep track of your preparation and understand
@@ -519,20 +531,34 @@
     </section>
 
 
-    <!-- FOOTER -->
-
     <footer>
 
         <p>
-            <strong>Learn With Sam</strong>
+            © 2026 Learn With Sam
+        </p>
+
+        <p>
+
+            <a href="privacy-policy.html">
+                Privacy Policy
+            </a>
+
+            |
+
+            <a href="terms.html">
+                Terms & Conditions
+            </a>
+
+            |
+
+            <a href="contact.html">
+                Contact Us
+            </a>
+
         </p>
 
         <p>
             Learn Better • Study Smarter • Achieve More
-        </p>
-
-        <p>
-            © 2026 Learn With Sam. All rights reserved.
         </p>
 
     </footer>
