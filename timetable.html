@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Timetable | Learn With Sam</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #222;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2563eb, #4f46e5);
+            color: white;
+            text-align: center;
+            padding: 28px 15px;
+            border-radius: 0 0 24px 24px;
+        }
+
+        header h1 {
+            font-size: 27px;
+            margin-bottom: 7px;
+        }
+
+        header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .container {
+            width: 92%;
+            max-width: 600px;
+            margin: 22px auto;
+        }
+
+        .intro {
+            background: white;
+            padding: 18px;
+            border-radius: 16px;
+            margin-bottom: 18px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+        }
+
+        .intro h2 {
+            font-size: 19px;
+            margin-bottom: 6px;
+        }
+
+        .intro p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .timetable {
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.07);
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+            padding: 17px 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .row:last-child {
+            border-bottom: none;
+        }
+
+        .time {
+            width: 125px;
+            font-size: 13px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        .activity {
+            flex: 1;
+        }
+
+        .activity h3 {
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
+
+        .activity p {
+            font-size: 12px;
+            color: #777;
+        }
+
+        .school {
+            background: #f0fdf4;
+        }
+
+        .school .time {
+            color: #16a34a;
+        }
+
+        .break {
+            background: #fffbeb;
+        }
+
+        .break .time {
+            color: #d97706;
+        }
+
+        .sleep {
+            background: #f5f3ff;
+        }
+
+        .sleep .time {
+            color: #7c3aed;
+        }
+
+        .back {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            background: #2563eb;
+            color: white;
+            padding: 14px;
+            border-radius: 12px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            color: #777;
+            font-size: 12px;
+            margin: 25px 0;
+        }
+
+        @media (max-width: 500px) {
+
+            header h1 {
+                font-size: 24px;
+            }
+
+            .container {
+                width: 94%;
+            }
+
+            .row {
+                padding: 15px 12px;
+            }
+
+            .time {
+                width: 105px;
+                font-size: 11px;
+            }
+
+            .activity h3 {
+                font-size: 14px;
+            }
+
+            .activity p {
+                font-size: 11px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>📅 Study Timetable</h1>
+    <p>Simple & Effective Daily Routine</p>
+</header>
+
+<div class="container">
+
+    <div class="intro">
+        <h2>🎯 School Student Routine</h2>
+        <p>School ke saath padhai aur rest ko balance karo.</p>
+    </div>
+
+    <div class="timetable">
+
+        <div class="row">
+            <div class="time">6:00 – 7:00 AM</div>
+            <div class="activity">
+                <h3>📚 Morning Study</h3>
+                <p>Maths / Science</p>
+            </div>
+        </div>
+
+        <div class="row school">
+            <div class="time">8:00 AM – 2:00 PM</div>
+            <div class="activity">
+                <h3>🏫 School</h3>
+                <p>Classes & Learning</p>
+            </div>
+        </div>
+
+        <div class="row break">
+            <div class="time">2:00 – 3:00 PM</div>
+            <div class="activity">
+                <h3>🍛 Lunch + Rest</h3>
+                <p>Relax & Refresh</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="time">3:00 – 4:00 PM</div>
+            <div class="activity">
+                <h3>📝 Homework</h3>
+                <p>Complete school work</p>
+            </div>
+        </div>
+
+        <div class="row break">
+            <div class="time">4:00 – 5:00 PM</div>
+            <div class="activity">
+                <h3>⚽ Break</h3>
+                <p>Play & Relax</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="time">5:00 – 7:00 PM</div>
+            <div class="activity">
+                <h3>📖 Study Time</h3>
+                <p>Maths / Science / SST</p>
+            </div>
+        </div>
+
+        <div class="row break">
+            <div class="time">7:00 – 8:00 PM</div>
+            <div class="activity">
+                <h3>🍽️ Dinner</h3>
+                <p>Family & Relax</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="time">8:00 – 9:30 PM</div>
+            <div class="activity">
+                <h3>📚 Study + Revision</h3>
+                <p>Languages + Daily Revision</p>
+            </div>
+        </div>
+
+        <div class="row sleep">
+            <div class="time">10:00 PM</div>
+            <div class="activity">
+                <h3>😴 Sleep</h3>
+                <p>Get proper rest</p>
+            </div>
+        </div>
+
+    </div>
+
+    <a href="index.html" class="back">
+        ← Back to Home
+    </a>
+
+</div>
+
+<footer>
+    © 2026 Learn With Sam
+</footer>
+
+</body>
+</html>

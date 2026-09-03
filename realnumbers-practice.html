@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Real Numbers Practice | Learn With Sam</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6fb;
+    color: #222;
+}
+
+header {
+    background: #172554;
+    color: white;
+    text-align: center;
+    padding: 20px 15px;
+}
+
+header h1 {
+    margin: 0 0 6px;
+    font-size: 25px;
+}
+
+header p {
+    margin: 0;
+    opacity: 0.9;
+}
+
+main {
+    max-width: 750px;
+    margin: auto;
+    padding: 18px;
+}
+
+.top-bar {
+    background: white;
+    padding: 15px;
+    border-radius: 14px;
+    margin-bottom: 18px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+}
+
+.top-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.timer {
+    background: #fff1f1;
+    color: #d63031;
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+
+.progress-container {
+    width: 100%;
+    height: 10px;
+    background: #e2e5ec;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 2.5%;
+    background: #2563eb;
+    border-radius: 20px;
+    transition: width 0.3s;
+}
+
+.question-card {
+    background: white;
+    padding: 22px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.level {
+    display: inline-block;
+    background: #eef2ff;
+    padding: 7px 11px;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.question {
+    font-size: 20px;
+    line-height: 1.5;
+    margin: 5px 0 20px;
+}
+
+.option {
+    display: block !important;
+    width: 100% !important;
+    margin: 12px 0 !important;
+    padding: 14px 16px !important;
+    text-align: left !important;
+    background: #f1f3f8;
+    color: #222;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+    line-height: 1.4;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.option:hover {
+    background: #e5e8f0;
+}
+
+.option.correct {
+    background: #dff6e4;
+    border: 2px solid #28a745;
+    color: #176b2c;
+}
+
+.option.wrong {
+    background: #ffe1e1;
+    border: 2px solid #dc3545;
+    color: #a51d2a;
+}
+
+.option:disabled {
+    cursor: default;
+}
+
+.answer-message {
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 10px;
+    line-height: 1.5;
+    display: none;
+}
+
+.answer-message.correct-msg {
+    display: block;
+    background: #e4f8e8;
+    color: #176b2c;
+}
+
+.answer-message.wrong-msg {
+    display: block;
+    background: #ffe8e8;
+    color: #a51d2a;
+}
+
+#nextBtn,
+#restartBtn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 18px;
+    border: none;
+    border-radius: 10px;
+    background: #2563eb;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    display: none;
+}
+
+#nextBtn:hover,
+#restartBtn:hover {
+    background: #1d4ed8;
+}
+
+#finalResult {
+    display: none;
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+#finalResult h2 {
+    text-align: center;
+}
+
+.result-score {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.result-box {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.result-item {
+    flex: 1;
+    text-align: center;
+    padding: 14px 8px;
+    background: #f3f5fa;
+    border-radius: 10px;
+}
+
+.result-item h3 {
+    font-size: 15px;
+    margin: 0 0 8px;
+}
+
+.result-item p {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+#finalMessage {
+    text-align: center;
+    line-height: 1.6;
+}
+
+.time-up {
+    display: none;
+    background: #ffe2e2;
+    color: #b4232c;
+    padding: 12px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* Answer Review */
+
+#reviewSection {
+    margin-top: 28px;
+}
+
+#reviewSection h2 {
+    margin-bottom: 15px;
+}
+
+.review-card {
+    background: #f5f7ff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    border-left: 5px solid #dc3545;
+}
+
+.review-question {
+    font-weight: bold;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.review-wrong {
+    color: #b4232c;
+    margin-bottom: 7px;
+    line-height: 1.5;
+}
+
+.review-correct {
+    color: #176b2c;
+    font-weight: bold;
+    margin-bottom: 7px;
+    line-height: 1.5;
+}
+
+.review-explanation {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+    line-height: 1.6;
+}
+
+.perfect-score {
+    background: #e3f9e7;
+    padding: 15px;
+    border-radius: 12px;
+    font-weight: bold;
+    text-align: center;
+}
+
+@media (max-width: 500px) {
+
+    main {
+        padding: 12px;
+    }
+
+    header h1 {
+        font-size: 21px;
+    }
+
+    .question {
+        font-size: 18px;
+    }
+
+    .result-box {
+        gap: 6px;
+    }
+
+    .result-item {
+        padding: 12px 5px;
+    }
+
+    .result-item p {
+        font-size: 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>📚 Real Numbers Practice</h1>
+    <p>Class 10 • Bihar Board • Learn With Sam</p>
+</header>
+
+<main>
+
+<div id="quizArea">
+
+    <div class="top-bar">
+
+        <div class="top-info">
+            <span id="questionNumber">प्रश्न 1 / 40</span>
+            <span class="timer" id="timer">⏱️ 40:00</span>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+    </div>
+
+    <div class="time-up" id="timeUp">
+        ⏰ समय समाप्त!
+    </div>
+
+    <div class="question-card">
+
+        <div class="level" id="level">
+            🟢 Level 1 - Basic
+        </div>
+
+        <h2 class="question" id="question"></h2>
+
+        <div id="options"></div>
+
+        <div class="answer-message" id="answerMessage"></div>
+
+        <button id="nextBtn" onclick="nextQuestion()">
+            अगला प्रश्न ➜
+        </button>
+
+    </div>
+
+</div>
+
+
+<div id="finalResult">
+
+    <h2>🏆 Test Complete!</h2>
+
+    <div class="result-score" id="finalScore">
+        0 / 40
+    </div>
+
+    <div class="result-box">
+
+        <div class="result-item">
+            <h3>✅ सही</h3>
+            <p id="correctCount">0</p>
+        </div>
+
+        <div class="result-item">
+            <h3>❌ गलत</h3>
+            <p id="wrongCount">0</p>
+        </div>
+
+        <div class="result-item">
+            <h3>📊 प्रतिशत</h3>
+            <p id="percentage">0%</p>
+        </div>
+
+    </div>
+
+    <p id="finalMessage"></p>
+
+
+    <div id="reviewSection">
+
+        <h2>📝 Answer Review</h2>
+
+        <div id="wrongAnswers"></div>
+
+    </div>
+
+
+    <button id="restartBtn" onclick="location.reload()">
+        🔄 फिर से Test दें
+    </button>
+
+</div>
+
+</main>
+
+
+<!-- @ts-nocheck -->
+
+<script>
+
+const questions = [
+
+{
+q:"12 और 18 का HCF क्या है?",
+options:["2","6","9","12"],
+answer:1,
+level:"🟢 Level 1 - Basic",
+explanation:"12 और 18 के समान गुणनखंडों में सबसे बड़ी संख्या 6 है। इसलिए HCF = 6।"
+},
+
+{
+q:"Euclid Division Lemma का सही रूप क्या है?",
+options:["a = bq + r","a = b + q + r","a = bq - r","a = q + r"],
+answer:0,
+level:"🟢 Level 1 - Basic",
+explanation:"Euclid Division Lemma के अनुसार a = bq + r, जहाँ 0 ≤ r < b।"
+},
+
+{
+q:"इनमें से कौन-सी संख्या अपरिमेय (Irrational) है?",
+options:["2/3","0.5","√2","4"],
+answer:2,
+level:"🟢 Level 1 - Basic",
+explanation:"√2 को p/q के रूप में नहीं लिखा जा सकता, इसलिए √2 अपरिमेय संख्या है।"
+},
+
+{
+q:"1/8 का दशमलव प्रसार क्या है?",
+options:["0.125","0.25","0.75","1.25"],
+answer:0,
+level:"🟢 Level 1 - Basic",
+explanation:"1 ÷ 8 = 0.125। इसलिए इसका दशमलव प्रसार सांत है।"
+},
+
+{
+q:"60 का अभाज्य गुणनखंडन क्या है?",
+options:["2×2×3×5","2×3×5","3×4×5","2×2×15"],
+answer:0,
+level:"🟢 Level 1 - Basic",
+explanation:"60 = 2 × 2 × 3 × 5 = 2² × 3 × 5।"
+},
+
+{
+q:"15 और 25 का HCF क्या है?",
+options:["3","5","10","15"],
+answer:1,
+level:"🟢 Level 1 - Basic",
+explanation:"15 और 25 का सबसे बड़ा समान गुणनखंड 5 है।"
+},
+
+{
+q:"7/8 का दशमलव प्रसार क्या है?",
+options:["0.785","0.875","0.75","0.625"],
+answer:1,
+level:"🟢 Level 1 - Basic",
+explanation:"7 ÷ 8 = 0.875।"
+},
+
+{
+q:"इनमें से कौन-सी परिमेय संख्या है?",
+options:["√2","√3","3/5","π"],
+answer:2,
+level:"🟢 Level 1 - Basic",
+explanation:"3/5 को p/q के रूप में लिखा जा सकता है, इसलिए यह परिमेय संख्या है।"
+},
+
+{
+q:"20 और 30 का LCM क्या है?",
+options:["30","40","60","90"],
+answer:2,
+level:"🟢 Level 1 - Basic",
+explanation:"20 = 2²×5 और 30 = 2×3×5, इसलिए LCM = 2²×3×5 = 60।"
+},
+
+{
+q:"0.5 किस प्रकार की संख्या है?",
+options:["अपरिमेय","परिमेय","पूर्णांक नहीं","इनमें से कोई नहीं"],
+answer:1,
+level:"🟢 Level 1 - Basic",
+explanation:"0.5 = 1/2, इसलिए यह परिमेय संख्या है।"
+},
+
+{
+q:"135 और 225 का HCF क्या है?",
+options:["15","25","45","55"],
+answer:2,
+level:"🟡 Level 2 - Medium",
+explanation:"Euclid algorithm से 225 = 135×1 + 90, 135 = 90×1 + 45, इसलिए HCF = 45।"
+},
+
+{
+q:"72 का अभाज्य गुणनखंडन क्या है?",
+options:["2²×3²","2³×3²","2×3³","2⁴×3"],
+answer:1,
+level:"🟡 Level 2 - Medium",
+explanation:"72 = 8×9 = 2³×3²।"
+},
+
+{
+q:"17/30 का दशमलव प्रसार कैसा होगा?",
+options:["सांत","असांत आवर्ती","असांत अनावर्ती","पूर्णांक"],
+answer:1,
+level:"🟡 Level 2 - Medium",
+explanation:"30 = 2×3×5 में 3 का गुणनखंड है, इसलिए 17/30 का दशमलव प्रसार असांत आवर्ती होगा।"
+},
+
+{
+q:"96 और 404 का HCF क्या है?",
+options:["2","4","8","12"],
+answer:1,
+level:"🟡 Level 2 - Medium",
+explanation:"404 = 96×4 + 20, 96 = 20×4 + 16, 20 = 16×1 + 4, इसलिए HCF = 4।"
+},
+
+{
+q:"13/125 का दशमलव प्रसार कैसा होगा?",
+options:["सांत","असांत आवर्ती","असांत अनावर्ती","अपरिमेय"],
+answer:0,
+level:"🟡 Level 2 - Medium",
+explanation:"125 = 5³ है। हर में केवल 2 और 5 के गुणनखंड होने पर दशमलव प्रसार सांत होता है।"
+},
+
+{
+q:"√3 किस प्रकार की संख्या है?",
+options:["परिमेय","अपरिमेय","पूर्णांक","प्राकृतिक"],
+answer:1,
+level:"🟡 Level 2 - Medium",
+explanation:"√3 को दो पूर्णांकों के अनुपात में नहीं लिखा जा सकता, इसलिए यह अपरिमेय है।"
+},
+
+{
+q:"26 और 91 का HCF क्या है?",
+options:["7","13","26","91"],
+answer:1,
+level:"🟡 Level 2 - Medium",
+explanation:"91 = 26×3 + 13 और 26 = 13×2, इसलिए HCF = 13।"
+},
+
+{
+q:"दो संख्याओं का HCF = 6 और LCM = 72 है। यदि एक संख्या 18 है, तो दूसरी संख्या क्या होगी?",
+options:["12","18","24","36"],
+answer:2,
+level:"🟡 Level 2 - Medium",
+explanation:"HCF × LCM = दोनों संख्याओं का गुणनफल। दूसरी संख्या = (6×72)/18 = 24।"
+},
+
+{
+q:"15/160 को सरल रूप में लिखने पर क्या मिलेगा?",
+options:["3/16","3/32","5/32","15/32"],
+answer:1,
+level:"🟡 Level 2 - Medium",
+explanation:"15/160 को 5 से भाग देने पर 3/32 मिलता है।"
+},
+
+{
+q:"3/40 का दशमलव प्रसार कैसा होगा?",
+options:["सांत","असांत आवर्ती","असांत अनावर्ती","अपरिमेय"],
+answer:0,
+level:"🟡 Level 2 - Medium",
+explanation:"40 = 2³×5 है। इसलिए 3/40 का दशमलव प्रसार सांत होगा।"
+},
+
+{
+q:"867 और 255 का HCF क्या है?",
+options:["17","34","51","57"],
+answer:2,
+level:"🔵 Level 3 - Board Level",
+explanation:"Euclid algorithm लगाने पर HCF = 51 प्राप्त होता है।"
+},
+
+{
+q:"140 का अभाज्य गुणनखंडन क्या है?",
+options:["2²×5×7","2×5×14","2×7×10","4×35"],
+answer:0,
+level:"🔵 Level 3 - Board Level",
+explanation:"140 = 14×10 = 2×7×2×5 = 2²×5×7।"
+},
+
+{
+q:"इनमें से किसका दशमलव प्रसार सांत है?",
+options:["7/20","5/12","2/15","4/21"],
+answer:0,
+level:"🔵 Level 3 - Board Level",
+explanation:"20 = 2²×5 है, इसलिए 7/20 का दशमलव प्रसार सांत है।"
+},
+
+{
+q:"72 और 120 का HCF क्या है?",
+options:["12","18","24","36"],
+answer:2,
+level:"🔵 Level 3 - Board Level",
+explanation:"120 = 72×1 + 48, 72 = 48 + 24, इसलिए HCF = 24।"
+},
+
+{
+q:"382 और 196 का HCF क्या है?",
+options:["1","2","4","6"],
+answer:1,
+level:"🔵 Level 3 - Board Level",
+explanation:"382 = 196×1 + 186, 196 = 186 + 10 ... अंत में HCF = 2 मिलता है।"
+},
+
+{
+q:"दो संख्याओं का HCF = 12 और LCM = 180 है। यदि एक संख्या 36 है, तो दूसरी संख्या क्या होगी?",
+options:["48","50","60","72"],
+answer:2,
+level:"🔵 Level 3 - Board Level",
+explanation:"दूसरी संख्या = (12×180)/36 = 60।"
+},
+
+{
+q:"√2 को अपरिमेय सिद्ध करने के लिए सामान्यतः किस विधि का प्रयोग किया जाता है?",
+options:["प्रत्यक्ष विधि","विरोधाभास विधि","ग्राफ विधि","अनुमान विधि"],
+answer:1,
+level:"🔵 Level 3 - Board Level",
+explanation:"√2 की अपरिमेयता सिद्ध करने के लिए proof by contradiction अर्थात विरोधाभास विधि का प्रयोग किया जाता है।"
+},
+
+{
+q:"29/125 का दशमलव प्रसार कैसा होगा?",
+options:["सांत","असांत आवर्ती","असांत अनावर्ती","पूर्णांक"],
+answer:0,
+level:"🔵 Level 3 - Board Level",
+explanation:"125 = 5³ है, इसलिए 29/125 का दशमलव प्रसार सांत होगा।"
+},
+
+{
+q:"96 और 404 का LCM क्या है?",
+options:["9696","9600","9800","969"],
+answer:0,
+level:"🔵 Level 3 - Board Level",
+explanation:"HCF(96,404) = 4। इसलिए LCM = (96×404)/4 = 9696।"
+},
+
+{
+q:"किस स्थिति में किसी परिमेय संख्या का दशमलव प्रसार सांत होता है?",
+options:[
+"हर में केवल 2 और 5 के अभाज्य गुणनखंड हों",
+"हर में 3 हो",
+"हर में 7 हो",
+"हर में कोई भी अभाज्य संख्या हो"
+],
+answer:0,
+level:"🔵 Level 3 - Board Level",
+explanation:"सरल रूप में परिमेय संख्या के हर में केवल 2 और 5 के अभाज्य गुणनखंड होने पर उसका दशमलव प्रसार सांत होता है।"
+},
+
+{
+q:"Euclid Division Algorithm का मुख्य उपयोग किसे ज्ञात करने में होता है?",
+options:["LCM","HCF","Square root","Percentage"],
+answer:1,
+level:"🔴 Level 4 - Most Important",
+explanation:"Euclid Division Algorithm का उपयोग दो धनात्मक पूर्णांकों का HCF ज्ञात करने के लिए किया जाता है।"
+},
+
+{
+q:"405 और 252 का HCF क्या है?",
+options:["3","6","9","27"],
+answer:2,
+level:"🔴 Level 4 - Most Important",
+explanation:"Euclid algorithm लगाने पर HCF = 9 प्राप्त होता है।"
+},
+
+{
+q:"156 का अभाज्य गुणनखंडन क्या है?",
+options:["2²×3×13","2×3×26","4×39","2×78"],
+answer:0,
+level:"🔴 Level 4 - Most Important",
+explanation:"156 = 4×39 = 2²×3×13।"
+},
+
+{
+q:"इनमें से कौन-सी संख्या अपरिमेय है?",
+options:["√5","5/2","0.25","3"],
+answer:0,
+level:"🔴 Level 4 - Most Important",
+explanation:"√5 को p/q के रूप में नहीं लिखा जा सकता, इसलिए यह अपरिमेय है।"
+},
+
+{
+q:"7/20 का दशमलव रूप क्या है?",
+options:["0.25","0.35","0.45","0.75"],
+answer:1,
+level:"🔴 Level 4 - Most Important",
+explanation:"7 ÷ 20 = 0.35।"
+},
+
+{
+q:"दो संख्याओं का HCF = 8 और LCM = 240 है। यदि एक संख्या 40 है, तो दूसरी संख्या क्या होगी?",
+options:["36","48","60","72"],
+answer:1,
+level:"🔴 Level 4 - Most Important",
+explanation:"दूसरी संख्या = (8×240)/40 = 48।"
+},
+
+{
+q:"11/40 का दशमलव प्रसार कैसा होगा?",
+options:["सांत","असांत आवर्ती","असांत अनावर्ती","अपरिमेय"],
+answer:0,
+level:"🔴 Level 4 - Most Important",
+explanation:"40 = 2³×5 है, इसलिए 11/40 का दशमलव प्रसार सांत होगा।"
+},
+
+{
+q:"Fundamental Theorem of Arithmetic मुख्य रूप से किससे संबंधित है?",
+options:[
+"अभाज्य गुणनखंडन",
+"दशमलव प्रसार",
+"प्रतिशत",
+"क्षेत्रफल"
+],
+answer:0,
+level:"🔴 Level 4 - Most Important",
+explanation:"Fundamental Theorem of Arithmetic के अनुसार प्रत्येक संयुक्त संख्या को अभाज्य संख्याओं के गुणनफल के रूप में व्यक्त किया जा सकता है।"
+},
+
+{
+q:"√3 को अपरिमेय सिद्ध करने के लिए कौन-सी विधि उपयोगी है?",
+options:[
+"विरोधाभास विधि",
+"मापन विधि",
+"प्रतिशत विधि",
+"औसत विधि"
+],
+answer:0,
+level:"🔴 Level 4 - Most Important",
+explanation:"√3 को परिमेय मानकर विरोधाभास प्राप्त किया जाता है। इसलिए विरोधाभास विधि से इसे अपरिमेय सिद्ध किया जाता है।"
+},
+
+{
+q:"दो धनात्मक पूर्णांकों a और b के लिए सही संबंध कौन-सा है?",
+options:[
+"HCF + LCM = a×b",
+"HCF × LCM = a×b",
+"HCF - LCM = a×b",
+"HCF ÷ LCM = a×b"
+],
+answer:1,
+level:"🔴 Level 4 - Most Important",
+explanation:"दो धनात्मक पूर्णांकों के लिए HCF × LCM = दोनों संख्याओं का गुणनफल।"
+}
+
+];
+
+
+let currentQuestion = 0;
+let score = 0;
+let answered = false;
+
+let timeLeft = 40 * 60;
+let timerInterval;
+
+let wrongQuestions = [];
+
+
+function loadQuestion() {
+
+    answered = false;
+
+    const q = questions[currentQuestion];
+
+    document.getElementById("questionNumber").textContent =
+        `प्रश्न ${currentQuestion + 1} / ${questions.length}`;
+
+    document.getElementById("level").textContent = q.level;
+
+    document.getElementById("question").textContent = q.q;
+
+    const optionsDiv = document.getElementById("options");
+
+    optionsDiv.innerHTML = "";
+
+    q.options.forEach((option, index) => {
+
+        const button = document.createElement("button");
+
+        button.className = "option";
+
+        button.textContent =
+            String.fromCharCode(65 + index) + ". " + option;
+
+        button.onclick = function() {
+            checkAnswer(button, index);
+        };
+
+        optionsDiv.appendChild(button);
+
+    });
+
+
+    const message = document.getElementById("answerMessage");
+
+    message.textContent = "";
+
+    message.className = "answer-message";
+
+
+    document.getElementById("nextBtn").style.display = "none";
+
+
+    updateProgress();
+
+}
+
+
+function checkAnswer(button, selectedIndex) {
+
+    if (answered) return;
+
+    answered = true;
+
+    const q = questions[currentQuestion];
+
+    const allOptions =
+        document.querySelectorAll(".option");
+
+    allOptions.forEach(btn => {
+        btn.disabled = true;
+    });
+
+
+    if (selectedIndex === q.answer) {
+
+        button.classList.add("correct");
+
+        score++;
+
+        const message =
+            document.getElementById("answerMessage");
+
+        message.textContent =
+            "✅ सही उत्तर! बहुत बढ़िया।";
+
+        message.className =
+            "answer-message correct-msg";
+
+    } else {
+
+        button.classList.add("wrong");
+
+        allOptions[q.answer].classList.add("correct");
+
+
+        const message =
+            document.getElementById("answerMessage");
+
+        message.textContent =
+            "❌ गलत उत्तर! सही उत्तर: " +
+            q.options[q.answer];
+
+        message.className =
+            "answer-message wrong-msg";
+
+
+        wrongQuestions.push({
+
+            question: q.q,
+
+            selected:
+                q.options[selectedIndex],
+
+            correct:
+                q.options[q.answer],
+
+            explanation:
+                q.explanation
+
+        });
+
+    }
+
+
+    document.getElementById("nextBtn").style.display =
+        "block";
+
+}
+
+
+function nextQuestion() {
+
+    currentQuestion++;
+
+    if (currentQuestion < questions.length) {
+
+        loadQuestion();
+
+    } else {
+
+        finishQuiz();
+
+    }
+
+}
+
+
+function updateProgress() {
+
+    const progress =
+        ((currentQuestion + 1) / questions.length) * 100;
+
+    document.getElementById("progressBar").style.width =
+        progress + "%";
+
+}
+
+
+function startTimer() {
+
+    timerInterval = setInterval(function() {
+
+        timeLeft--;
+
+        let minutes =
+            Math.floor(timeLeft / 60);
+
+        let seconds =
+            timeLeft % 60;
+
+        seconds =
+            seconds < 10 ? "0" + seconds : seconds;
+
+
+        document.getElementById("timer").textContent =
+            `⏱️ ${minutes}:${seconds}`;
+
+
+        if (timeLeft <= 0) {
+
+            clearInterval(timerInterval);
+
+            document.getElementById("timeUp").style.display =
+                "block";
+
+            finishQuiz();
+
+        }
+
+    }, 1000);
+
+}
+
+
+function finishQuiz() {
+
+    clearInterval(timerInterval);
+
+    document.getElementById("quizArea").style.display =
+        "none";
+
+    document.getElementById("finalResult").style.display =
+        "block";
+
+
+    const total = questions.length;
+
+    const wrong = total - score;
+
+    const percentage =
+        Math.round((score / total) * 100);
+
+
+    document.getElementById("finalScore").textContent =
+        `${score} / ${total}`;
+
+    document.getElementById("correctCount").textContent =
+        score;
+
+    document.getElementById("wrongCount").textContent =
+        wrong;
+
+    document.getElementById("percentage").textContent =
+        percentage + "%";
+
+
+    let finalMessage = "";
+
+
+    if (percentage >= 90) {
+
+        finalMessage =
+            "🔥 Excellent! Real Numbers chapter par tumhari preparation bahut strong hai.";
+
+    } else if (percentage >= 75) {
+
+        finalMessage =
+            "👏 Very Good! Thodi aur practice se tum aur better score kar sakte ho.";
+
+    } else if (percentage >= 50) {
+
+        finalMessage =
+            "👍 Good attempt! Jo questions galat hue hain unhe dobara revise karo.";
+
+    } else {
+
+        finalMessage =
+            "📚 Chapter ko ek baar aur revise karo aur phir test dobara do.";
+
+    }
+
+
+    document.getElementById("finalMessage").textContent =
+        finalMessage;
+
+
+    showWrongAnswers();
+
+
+    document.getElementById("restartBtn").style.display =
+        "block";
+
+}
+
+
+function showWrongAnswers() {
+
+    const container =
+        document.getElementById("wrongAnswers");
+
+    container.innerHTML = "";
+
+
+    if (wrongQuestions.length === 0) {
+
+        container.innerHTML = `
+            <div class="perfect-score">
+                🎉 Perfect Score!<br>
+                सभी questions सही हैं। Excellent! 🔥
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    wrongQuestions.forEach((item, index) => {
+
+        const card =
+            document.createElement("div");
+
+        card.className = "review-card";
+
+
+        card.innerHTML = `
+
+            <div class="review-question">
+                ${index + 1}. ${item.question}
+            </div>
+
+            <div class="review-wrong">
+                ❌ आपका उत्तर: ${item.selected}
+            </div>
+
+            <div class="review-correct">
+                ✅ सही उत्तर: ${item.correct}
+            </div>
+
+            <div class="review-explanation">
+                💡 <b>Explanation:</b><br>
+                ${item.explanation}
+            </div>
+
+        `;
+
+
+        container.appendChild(card);
+
+    });
+
+}
+
+
+loadQuestion();
+
+startTimer();
+
+</script>
+
+</body>
+</html>
+
+
+
+

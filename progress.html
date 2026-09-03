@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Progress Tracker | Learn With Sam</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #222;
+            padding-bottom: 30px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2563eb, #4f46e5);
+            color: white;
+            text-align: center;
+            padding: 28px 15px;
+            border-radius: 0 0 25px 25px;
+        }
+
+        header h1 {
+            font-size: 27px;
+            margin-bottom: 7px;
+        }
+
+        header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .container {
+            width: 92%;
+            max-width: 650px;
+            margin: 22px auto;
+        }
+
+        .card {
+            background: white;
+            border-radius: 18px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+        }
+
+        .overall {
+            text-align: center;
+        }
+
+        .overall h2 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .percentage {
+            font-size: 42px;
+            font-weight: bold;
+            color: #2563eb;
+            margin-bottom: 12px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 12px;
+            background: #e5e7eb;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #2563eb, #4f46e5);
+            border-radius: 20px;
+            transition: width 0.4s ease;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .stat {
+            background: #f8fafc;
+            padding: 14px 8px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 22px;
+            color: #2563eb;
+            margin-bottom: 4px;
+        }
+
+        .stat span {
+            font-size: 11px;
+            color: #666;
+        }
+
+        .section-title {
+            font-size: 19px;
+            margin-bottom: 13px;
+        }
+
+        .subject {
+            margin-bottom: 17px;
+        }
+
+        .subject:last-child {
+            margin-bottom: 0;
+        }
+
+        .subject-top {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 7px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .subject-bar {
+            width: 100%;
+            height: 9px;
+            background: #e5e7eb;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .subject-fill {
+            height: 100%;
+            background: #2563eb;
+            border-radius: 20px;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        button {
+            flex: 1;
+            border: none;
+            padding: 13px;
+            border-radius: 11px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .add-btn {
+            background: #2563eb;
+            color: white;
+        }
+
+        .reset-btn {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+
+        .tip {
+            background: #eef2ff;
+            border-radius: 14px;
+            padding: 16px;
+            margin-top: 15px;
+        }
+
+        .tip h3 {
+            font-size: 15px;
+            margin-bottom: 6px;
+        }
+
+        .tip p {
+            font-size: 13px;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .back {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            background: #2563eb;
+            color: white;
+            padding: 14px;
+            border-radius: 12px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            color: #777;
+            font-size: 12px;
+            margin-top: 25px;
+        }
+
+        @media (max-width: 500px) {
+
+            header h1 {
+                font-size: 24px;
+            }
+
+            .container {
+                width: 94%;
+            }
+
+            .card {
+                padding: 17px;
+            }
+
+            .percentage {
+                font-size: 38px;
+            }
+
+            .stat strong {
+                font-size: 19px;
+            }
+
+            .stat span {
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>📊 Progress Tracker</h1>
+    <p>Track Your Learning • Learn With Sam</p>
+</header>
+
+<div class="container">
+
+    <!-- Overall Progress -->
+    <div class="card overall">
+
+        <h2>🎯 Overall Progress</h2>
+
+        <div class="percentage" id="overallPercent">
+            0%
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="overallFill"></div>
+        </div>
+
+        <div class="stats">
+
+            <div class="stat">
+                <strong id="completed">0</strong>
+                <span>Completed</span>
+            </div>
+
+            <div class="stat">
+                <strong id="remaining">15</strong>
+                <span>Remaining</span>
+            </div>
+
+            <div class="stat">
+                <strong id="total">15</strong>
+                <span>Total</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Subjects -->
+    <div class="card">
+
+        <h2 class="section-title">📚 Subjects</h2>
+
+        <div class="subject">
+
+            <div class="subject-top">
+                <span>📐 Mathematics</span>
+                <span id="mathPercent">0%</span>
+            </div>
+
+            <div class="subject-bar">
+                <div
+                    class="subject-fill"
+                    id="mathFill"
+                    style="width: 0%;">
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="subject">
+
+            <div class="subject-top">
+                <span>🔬 Science</span>
+                <span id="sciencePercent">0%</span>
+            </div>
+
+            <div class="subject-bar">
+                <div
+                    class="subject-fill"
+                    id="scienceFill"
+                    style="width: 0%;">
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="subject">
+
+            <div class="subject-top">
+                <span>🌍 Social Science</span>
+                <span id="sstPercent">0%</span>
+            </div>
+
+            <div class="subject-bar">
+                <div
+                    class="subject-fill"
+                    id="sstFill"
+                    style="width: 0%;">
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="subject">
+
+            <div class="subject-top">
+                <span>📖 Hindi</span>
+                <span id="hindiPercent">0%</span>
+            </div>
+
+            <div class="subject-bar">
+                <div
+                    class="subject-fill"
+                    id="hindiFill"
+                    style="width: 0%;">
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="subject">
+
+            <div class="subject-top">
+                <span>🇬🇧 English</span>
+                <span id="englishPercent">0%</span>
+            </div>
+
+            <div class="subject-bar">
+                <div
+                    class="subject-fill"
+                    id="englishFill"
+                    style="width: 0%;">
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="subject">
+
+            <div class="subject-top">
+                <span>📝 Sanskrit</span>
+                <span id="sanskritPercent">0%</span>
+            </div>
+
+            <div class="subject-bar">
+                <div
+                    class="subject-fill"
+                    id="sanskritFill"
+                    style="width: 0%;">
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Demo Controls -->
+    <div class="card">
+
+        <h2 class="section-title">⚙️ Progress</h2>
+
+        <p style="font-size:13px; color:#666; line-height:1.5;">
+            Chapter complete hone par progress update karo.
+        </p>
+
+        <div class="actions">
+
+            <button
+                class="add-btn"
+                onclick="completeChapter()">
+                + Complete Chapter
+            </button>
+
+            <button
+                class="reset-btn"
+                onclick="resetProgress()">
+                Reset
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- Tip -->
+    <div class="tip">
+
+        <h3>💡 Keep Going!</h3>
+
+        <p>
+            Daily thoda progress karo. Consistency se
+            syllabus complete karna easy ho jayega.
+        </p>
+
+    </div>
+
+
+    <a href="index.html" class="back">
+        ← Back to Home
+    </a>
+
+</div>
+
+<footer>
+    © 2026 Learn With Sam
+</footer>
+
+
+<script>
+    let completedChapters =
+        Number(localStorage.getItem("completedChapters")) || 0;
+
+    const totalChapters = 15;
+
+
+    function updateProgress() {
+
+        if (completedChapters > totalChapters) {
+            completedChapters = totalChapters;
+        }
+
+        let percentage =
+            Math.round((completedChapters / totalChapters) * 100);
+
+        document.getElementById("completed").textContent =
+            completedChapters;
+
+        document.getElementById("remaining").textContent =
+            totalChapters - completedChapters;
+
+        document.getElementById("total").textContent =
+            totalChapters;
+
+        document.getElementById("overallPercent").textContent =
+            percentage + "%";
+
+        document.getElementById("overallFill").style.width =
+            percentage + "%";
+
+
+        /*
+         * Subject progress
+         * Abhi demo ke liye Maths me progress
+         * dikhayi ja rahi hai.
+         *
+         * Baad me chapters ke saath automatically
+         * connect kar sakte hain.
+         */
+
+        let mathProgress = percentage;
+
+        document.getElementById("mathPercent").textContent =
+            mathProgress + "%";
+
+        document.getElementById("mathFill").style.width =
+            mathProgress + "%";
+
+
+        localStorage.setItem(
+            "completedChapters",
+            completedChapters
+        );
+    }
+
+
+    function completeChapter() {
+
+        if (completedChapters < totalChapters) {
+
+            completedChapters++;
+
+            updateProgress();
+
+        } else {
+
+            alert("🎉 All chapters completed!");
+
+        }
+    }
+
+
+    function resetProgress() {
+
+        let confirmReset =
+            confirm("Are you sure you want to reset progress?");
+
+        if (confirmReset) {
+
+            completedChapters = 0;
+
+            localStorage.removeItem("completedChapters");
+
+            updateProgress();
+        }
+    }
+
+
+    updateProgress();
+</script>
+
+</body>
+</html>
