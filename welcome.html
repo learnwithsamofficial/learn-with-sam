@@ -5,67 +5,536 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Welcome | Learn With Sam</title>
+    <meta name="description" content="Learn With Sam - Learn Better. Study Smarter. Achieve More.">
 
-    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f8ff;
+            color: #172033;
+        }
+
+        .welcome-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* NAVBAR */
+
+        .navbar {
+            width: 100%;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255,255,255,0.9);
+            border-bottom: 1px solid #e8edf7;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            background: linear-gradient(135deg,#2563eb,#4f46e5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 22px;
+        }
+
+        .nav-text {
+            font-size: 14px;
+            color: #667085;
+        }
+
+        /* HERO */
+
+        .hero {
+            flex: 1;
+            max-width: 1150px;
+            width: 90%;
+            margin: auto;
+            padding: 65px 0 45px;
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 14px;
+            background: #eaf1ff;
+            color: #2563eb;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 6vw, 68px);
+            line-height: 1.05;
+            letter-spacing: -2px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #2563eb;
+        }
+
+        .hero-description {
+            max-width: 600px;
+            color: #667085;
+            font-size: 17px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 13px;
+            flex-wrap: wrap;
+        }
+
+        .primary-btn {
+            display: inline-block;
+            padding: 14px 24px;
+            background: linear-gradient(135deg,#2563eb,#4f46e5);
+            color: white;
+            text-decoration: none;
+            border-radius: 11px;
+            font-weight: 700;
+            box-shadow: 0 8px 20px rgba(37,99,235,.2);
+        }
+
+        .secondary-btn {
+            display: inline-block;
+            padding: 14px 24px;
+            background: white;
+            color: #172033;
+            text-decoration: none;
+            border: 1px solid #dfe5ef;
+            border-radius: 11px;
+            font-weight: 700;
+        }
+
+        /* DASHBOARD CARD */
+
+        .preview {
+            position: relative;
+        }
+
+        .dashboard {
+            background: white;
+            border-radius: 24px;
+            padding: 22px;
+            box-shadow: 0 20px 50px rgba(31,41,55,.12);
+            border: 1px solid #e7ebf3;
+        }
+
+        .dashboard-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .dashboard-title {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .status {
+            font-size: 12px;
+            padding: 6px 10px;
+            border-radius: 20px;
+            background: #ecfdf3;
+            color: #15803d;
+            font-weight: 700;
+        }
+
+        .progress-box {
+            background: #f7f9fc;
+            padding: 18px;
+            border-radius: 15px;
+            margin-bottom: 14px;
+        }
+
+        .progress-head {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .progress-bar {
+            height: 9px;
+            background: #e7ebf2;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            width: 72%;
+            height: 100%;
+            background: linear-gradient(90deg,#2563eb,#4f46e5);
+            border-radius: 20px;
+        }
+
+        .mini-grid {
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: 12px;
+            margin-top: 14px;
+        }
+
+        .mini-card {
+            padding: 17px;
+            background: #f8fafc;
+            border-radius: 14px;
+            border: 1px solid #edf0f5;
+        }
+
+        .mini-icon {
+            font-size: 24px;
+            margin-bottom: 7px;
+        }
+
+        .mini-card strong {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 3px;
+        }
+
+        .mini-card small {
+            color: #7b8494;
+        }
+
+        /* FEATURES */
+
+        .features {
+            width: 90%;
+            max-width: 1150px;
+            margin: 10px auto 55px;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 18px;
+        }
+
+        .feature {
+            background: white;
+            padding: 22px;
+            border-radius: 16px;
+            border: 1px solid #e7ebf3;
+        }
+
+        .feature-icon {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .feature h3 {
+            font-size: 17px;
+            margin-bottom: 6px;
+        }
+
+        .feature p {
+            color: #727b8c;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            padding: 24px 15px;
+            color: #7b8494;
+            font-size: 13px;
+            border-top: 1px solid #e5eaf2;
+            background: white;
+        }
+
+        footer strong {
+            color: #2563eb;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
+            .navbar {
+                padding: 15px 5%;
+            }
+
+            .nav-text {
+                display: none;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 45px 0 35px;
+                gap: 35px;
+            }
+
+            .hero h1 {
+                font-size: 44px;
+                letter-spacing: -1.5px;
+            }
+
+            .hero-description {
+                font-size: 15px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+                margin-bottom: 35px;
+            }
+
+            .dashboard {
+                border-radius: 19px;
+            }
+        }
+
+        @media (max-width: 430px) {
+
+            .hero {
+                width: 88%;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+
+            .primary-btn,
+            .secondary-btn {
+                text-align: center;
+                width: 100%;
+            }
+
+            .mini-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
 <div class="welcome-page">
 
-    <nav class="welcome-nav">
-        <div class="welcome-logo">
-            📚 <span>Learn With Sam</span>
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <div class="logo-icon">📚</div>
+            <span>Learn With Sam</span>
         </div>
+
+        <div class="nav-text">
+            Your Smart Study Partner
+        </div>
+
     </nav>
 
-    <main class="welcome-content">
 
-        <div class="welcome-badge">
-            🎓 Smart Study Platform
+    <!-- HERO -->
+
+    <main class="hero">
+
+        <div>
+
+            <div class="badge">
+                🎓 Smart Learning Platform
+            </div>
+
+            <h1>
+                Learn Better.<br>
+                <span>Study Smarter.</span>
+            </h1>
+
+            <p class="hero-description">
+                Notes, important questions, study tools, timetable
+                and progress tracking — everything you need to make
+                your preparation more organised and effective.
+            </p>
+
+            <div class="buttons">
+
+                <a href="index.html" class="primary-btn">
+                    Get Started →
+                </a>
+
+                <a href="books.html" class="secondary-btn">
+                    Explore Materials
+                </a>
+
+            </div>
+
         </div>
 
-        <h1>
-            Study Smarter.<br>
-            <span>Achieve More.</span>
-        </h1>
 
-        <p>
-            Notes, important questions, study timer,
-            timetable and progress — everything you need
-            for a better study routine.
-        </p>
+        <!-- DASHBOARD PREVIEW -->
 
-        <a href="index.html" class="welcome-button">
-            Get Started →
-        </a>
+        <div class="preview">
 
-        <div class="welcome-features">
+            <div class="dashboard">
 
-            <div class="welcome-feature">
-                <div>📖</div>
-                <h3>Study Material</h3>
-                <p>Notes & important questions</p>
-            </div>
+                <div class="dashboard-top">
 
-            <div class="welcome-feature">
-                <div>⏱️</div>
-                <h3>Study Timer</h3>
-                <p>Track your study time</p>
-            </div>
+                    <div class="dashboard-title">
+                        📊 Your Study Dashboard
+                    </div>
 
-            <div class="welcome-feature">
-                <div>📊</div>
-                <h3>Track Progress</h3>
-                <p>Know your preparation</p>
+                    <div class="status">
+                        ● Ready
+                    </div>
+
+                </div>
+
+
+                <div class="progress-box">
+
+                    <div class="progress-head">
+                        <span>Study Progress</span>
+                        <span>72%</span>
+                    </div>
+
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+
+                </div>
+
+
+                <div class="mini-grid">
+
+                    <div class="mini-card">
+                        <div class="mini-icon">📚</div>
+                        <strong>Study Material</strong>
+                        <small>Notes & PDFs</small>
+                    </div>
+
+                    <div class="mini-card">
+                        <div class="mini-icon">⏱️</div>
+                        <strong>Study Timer</strong>
+                        <small>Track your time</small>
+                    </div>
+
+                    <div class="mini-card">
+                        <div class="mini-icon">📅</div>
+                        <strong>Timetable</strong>
+                        <small>Plan your day</small>
+                    </div>
+
+                    <div class="mini-card">
+                        <div class="mini-icon">🎯</div>
+                        <strong>Progress</strong>
+                        <small>Track preparation</small>
+                    </div>
+
+                </div>
+
             </div>
 
         </div>
 
     </main>
 
-    <footer class="welcome-footer">
-        © 2026 Learn With Sam
+
+    <!-- FEATURES -->
+
+    <section class="features">
+
+        <div class="feature">
+
+            <div class="feature-icon">📖</div>
+
+            <h3>
+                Quality Study Material
+            </h3>
+
+            <p>
+                Find notes, questions and learning resources
+                in one organised place.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">⚡</div>
+
+            <h3>
+                Study Efficiently
+            </h3>
+
+            <p>
+                Use the timer and timetable to build a
+                consistent study routine.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">📈</div>
+
+            <h3>
+                Track Your Progress
+            </h3>
+
+            <p>
+                Keep track of your preparation and understand
+                what you need to study next.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            <strong>Learn With Sam</strong>
+        </p>
+
+        <p>
+            Learn Better • Study Smarter • Achieve More
+        </p>
+
+        <p>
+            © 2026 Learn With Sam. All rights reserved.
+        </p>
+
     </footer>
 
 </div>
