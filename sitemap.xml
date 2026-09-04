@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
     <loc>https://learnwithsamofficial.github.io/learn-with-sam/</loc>
+  </url>
+
+  <url>
+    <loc>https://learnwithsamofficial.github.io/learn-with-sam/home.html</loc>
   </url>
 
   <url>
@@ -43,10 +48,6 @@
 
   <url>
     <loc>https://learnwithsamofficial.github.io/learn-with-sam/progress.html</loc>
-  </url>
-
-  <url>
-    <loc>https://learnwithsamofficial.github.io/learn-with-sam/welcome.html</loc>
   </url>
 
 </urlset>
