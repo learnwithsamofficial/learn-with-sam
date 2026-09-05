@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About Us | Learn With Sam</title>
+
+    <meta name="description"
+          content="Learn about Learn With Sam, an educational platform providing Bihar Board study materials, notes, important questions and smart study tools for students.">
+
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical"
+          href="https://learnwithsamofficial.github.io/learn-with-sam/about.html">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f8ff;
+            color: #172033;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .about-header {
+            background: white;
+            border-bottom: 1px solid #e5eaf2;
+            padding: 18px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #2563eb, #4f46e5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 21px;
+        }
+
+        .home-btn {
+            text-decoration: none;
+            color: #2563eb;
+            background: #eef3ff;
+            padding: 10px 16px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .home-btn:hover {
+            background: #e2eaff;
+        }
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        .about-container {
+            width: 90%;
+            max-width: 950px;
+            margin: auto;
+            padding: 55px 0;
+        }
+
+        /* =========================
+           PAGE TITLE
+        ========================= */
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #eaf1ff;
+            color: #2563eb;
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .page-title h1 {
+            font-size: clamp(34px, 6vw, 52px);
+            margin: 0 0 14px;
+            letter-spacing: -1px;
+        }
+
+        .page-title p {
+            max-width: 700px;
+            margin: auto;
+            color: #667085;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        /* =========================
+           CARDS
+        ========================= */
+
+        .about-card {
+            background: white;
+            border: 1px solid #e5eaf2;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(31, 41, 55, 0.06);
+        }
+
+        .about-card h2 {
+            margin: 0 0 14px;
+            font-size: 23px;
+            color: #172033;
+        }
+
+        .about-card p {
+            color: #667085;
+            font-size: 15px;
+            line-height: 1.8;
+            margin: 0 0 12px;
+        }
+
+        .about-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* =========================
+           RESOURCE GRID
+        ========================= */
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+            margin-top: 20px;
+        }
+
+        .resource-item {
+            background: #f8faff;
+            border: 1px solid #e8edf6;
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        .resource-icon {
+            font-size: 26px;
+            margin-bottom: 8px;
+        }
+
+        .resource-item h3 {
+            margin: 0 0 6px;
+            font-size: 16px;
+        }
+
+        .resource-item p {
+            font-size: 13px;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* =========================
+           MISSION
+        ========================= */
+
+        .mission-card {
+            background: linear-gradient(135deg, #ffffff, #f5f8ff);
+        }
+
+        /* =========================
+           CONTACT CTA
+        ========================= */
+
+        .contact-card {
+            text-align: center;
+            background: linear-gradient(135deg, #eef4ff, #f8faff);
+        }
+
+        .contact-card h2 {
+            margin-bottom: 10px;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 13px 22px;
+            background: linear-gradient(135deg, #2563eb, #4f46e5);
+            color: white;
+            text-decoration: none;
+            border-radius: 11px;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .contact-btn:hover {
+            opacity: 0.92;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            background: white;
+            border-top: 1px solid #e5eaf2;
+            color: #7b8494;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        footer p {
+            margin: 6px 0;
+        }
+
+        footer strong {
+            color: #172033;
+            font-size: 15px;
+        }
+
+        footer a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 650px) {
+
+            .about-header {
+                padding: 15px 5%;
+            }
+
+            .logo {
+                font-size: 17px;
+            }
+
+            .logo-icon {
+                width: 38px;
+                height: 38px;
+                font-size: 19px;
+            }
+
+            .home-btn {
+                padding: 9px 12px;
+                font-size: 13px;
+            }
+
+            .about-container {
+                width: 90%;
+                padding: 40px 0;
+            }
+
+            .page-title {
+                margin-bottom: 30px;
+            }
+
+            .page-title h1 {
+                font-size: 35px;
+            }
+
+            .page-title p {
+                font-size: 14px;
+            }
+
+            .about-card {
+                padding: 22px;
+                border-radius: 17px;
+            }
+
+            .about-card h2 {
+                font-size: 20px;
+            }
+
+            .about-card p {
+                font-size: 14px;
+            }
+
+            .resource-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         HEADER
+    ========================= -->
+
+    <header class="about-header">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                📚
+            </div>
+
+            <span>
+                Learn With Sam
+            </span>
+
+        </div>
+
+        <a href="index.html" class="home-btn">
+            ← Home
+        </a>
+
+    </header>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================= -->
+
+    <main class="about-container">
+
+
+        <!-- PAGE TITLE -->
+
+        <div class="page-title">
+
+            <div class="badge">
+                📚 About Learn With Sam
+            </div>
+
+            <h1>
+                About Us
+            </h1>
+
+            <p>
+                Learn more about Learn With Sam and our mission
+                to make learning simple, organised and effective
+                for students.
+            </p>
+
+        </div>
+
+
+        <!-- WELCOME -->
+
+        <section class="about-card">
+
+            <h2>
+                Welcome to Learn With Sam
+            </h2>
+
+            <p>
+                Welcome to Learn With Sam, an online educational
+                platform created to help Bihar Board students
+                with their study preparation.
+            </p>
+
+            <p>
+                We believe that students should be able to find
+                useful educational resources in a simple and
+                organised way. Our platform brings study materials,
+                notes, important questions and smart study tools
+                together in one place.
+            </p>
+
+        </section>
+
+
+        <!-- MISSION -->
+
+        <section class="about-card mission-card">
+
+            <h2>
+                🎯 Our Mission
+            </h2>
+
+            <p>
+                Our mission is to make study preparation easier
+                and more organised for students.
+            </p>
+
+            <p>
+                Finding the right books, notes, questions and
+                other study resources can take valuable time.
+                Learn With Sam aims to simplify this process by
+                bringing useful resources together in one
+                easy-to-use platform.
+            </p>
+
+            <p>
+                Our goal is to help students spend less time
+                searching for resources and more time focusing
+                on learning and preparation.
+            </p>
+
+        </section>
+
+
+        <!-- WHAT WE PROVIDE -->
+
+        <section class="about-card">
+
+            <h2>
+                📚 What We Provide
+            </h2>
+
+            <p>
+                Learn With Sam provides a growing collection of
+                educational resources and study tools for students.
+            </p>
+
+
+            <div class="resource-grid">
+
+
+                <div class="resource-item">
+
+                    <div class="resource-icon">
+                        📖
+                    </div>
+
+                    <h3>
+                        Study Materials
+                    </h3>
+
+                    <p>
+                        Useful Bihar Board study materials and
+                        learning resources in an organised format.
+                    </p>
+
+                </div>
+
+
+                <div class="resource-item">
+
+                    <div class="resource-icon">
+                        📝
+                    </div>
+
+                    <h3>
+                        Notes & Important Questions
+                    </h3>
+
+                    <p>
+                        Notes and important questions to support
+                        revision and exam preparation.
+                    </p>
+
+                </div>
+
+
+                <div class="resource-item">
+
+                    <div class="resource-icon">
+                        ⏱️
+                    </div>
+
+                    <h3>
+                        Study Timer
+                    </h3>
+
+                    <p>
+                        Track your study sessions and build a
+                        more consistent study routine.
+                    </p>
+
+                </div>
+
+
+                <div class="resource-item">
+
+                    <div class="resource-icon">
+                        📅
+                    </div>
+
+                    <h3>
+                        Timetable
+                    </h3>
+
+                    <p>
+                        Plan your study schedule and organise
+                        your daily preparation.
+                    </p>
+
+                </div>
+
+
+                <div class="resource-item">
+
+                    <div class="resource-icon">
+                        📈
+                    </div>
+
+                    <h3>
+                        Progress Tracker
+                    </h3>
+
+                    <p>
+                        Keep track of your preparation and
+                        understand what you need to study next.
+                    </p>
+
+                </div>
+
+
+                <div class="resource-item">
+
+                    <div class="resource-icon">
+                        🎯
+                    </div>
+
+                    <h3>
+                        Practice Resources
+                    </h3>
+
+                    <p>
+                        Practice questions and resources to
+                        support self-assessment and revision.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- WHY CHOOSE US -->
+
+        <section class="about-card">
+
+            <h2>
+                ⭐ Why Choose Learn With Sam?
+            </h2>
+
+            <p>
+                We aim to keep Learn With Sam simple, organised
+                and student-friendly.
+            </p>
+
+            <p>
+                Our focus is to make useful educational resources
+                easier to find while providing simple tools that
+                can help students organise their study routine.
+            </p>
+
+            <p>
+                We are continuously working to improve the
+                platform and add more useful resources for
+                students.
+            </p>
+
+        </section>
+
+
+        <!-- OUR VISION -->
+
+        <section class="about-card">
+
+            <h2>
+                🚀 Our Vision
+            </h2>
+
+            <p>
+                We want Learn With Sam to become a helpful learning
+                platform where students can find study resources,
+                practise important topics and organise their
+                preparation in one place.
+            </p>
+
+            <p>
+                As the platform grows, we aim to add more
+                educational content and useful study features.
+            </p>
+
+        </section>
+
+
+        <!-- CONTACT -->
+
+        <section class="about-card contact-card">
+
+            <h2>
+                💬 Get in Touch
+            </h2>
+
+            <p>
+                Have a suggestion, feedback or question?
+                We would love to hear from you.
+            </p>
+
+            <p>
+                Your feedback helps us improve Learn With Sam
+                and make the platform more useful for students.
+            </p>
+
+            <a href="contact.html" class="contact-btn">
+                Contact Us →
+            </a>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <p>
+            <strong>
+                Learn With Sam
+            </strong>
+        </p>
+
+        <p>
+            <a href="about.html">About Us</a>
+            |
+            <a href="privacy-policy.html">Privacy Policy</a>
+            |
+            <a href="terms.html">Terms & Conditions</a>
+            |
+            <a href="contact.html">Contact Us</a>
+        </p>
+
+        <p>
+            Learn Better • Study Smarter • Achieve More
+        </p>
+
+        <p>
+            © 2026 Learn With Sam. All rights reserved.
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
