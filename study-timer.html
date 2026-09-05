@@ -1,277 +1,434 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Timetable | Learn With Sam</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<title>Study Timer | Learn With Sam</title>
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #f5f7fb;
-            color: #222;
-        }
+<meta name="description" content="Free study timer for students to track daily and total study time on Learn With Sam.">
 
-        header {
-            background: linear-gradient(135deg, #2563eb, #4f46e5);
-            color: white;
-            text-align: center;
-            padding: 28px 15px;
-            border-radius: 0 0 24px 24px;
-        }
+<meta name="robots" content="index, follow">
 
-        header h1 {
-            font-size: 27px;
-            margin-bottom: 7px;
-        }
+<link rel="canonical" href="https://learnwithsamofficial.github.io/learn-with-sam/study-timer.html">
 
-        header p {
-            font-size: 14px;
-            opacity: 0.9;
-        }
+<style>
 
-        .container {
-            width: 92%;
-            max-width: 600px;
-            margin: 22px auto;
-        }
+* {
+    box-sizing: border-box;
+}
 
-        .intro {
-            background: white;
-            padding: 18px;
-            border-radius: 16px;
-            margin-bottom: 18px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-        }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6fb;
+    color: #222;
+}
 
-        .intro h2 {
-            font-size: 19px;
-            margin-bottom: 6px;
-        }
+header {
+    background: #172554;
+    color: white;
+    text-align: center;
+    padding: 22px 15px;
+}
 
-        .intro p {
-            color: #666;
-            font-size: 14px;
-        }
+header h1 {
+    margin: 0 0 6px;
+    font-size: 26px;
+}
 
-        .timetable {
-            background: white;
-            border-radius: 18px;
-            overflow: hidden;
-            box-shadow: 0 5px 18px rgba(0,0,0,0.07);
-        }
+header p {
+    margin: 0;
+    opacity: 0.9;
+}
 
-        .row {
-            display: flex;
-            align-items: center;
-            padding: 17px 15px;
-            border-bottom: 1px solid #eee;
-        }
+main {
+    max-width: 650px;
+    margin: auto;
+    padding: 20px 15px;
+}
 
-        .row:last-child {
-            border-bottom: none;
-        }
+.timer-card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
 
-        .time {
-            width: 125px;
-            font-size: 13px;
-            font-weight: bold;
-            color: #2563eb;
-        }
+.timer-label {
+    font-size: 17px;
+    color: #666;
+    margin-bottom: 10px;
+}
 
-        .activity {
-            flex: 1;
-        }
+.timer {
+    font-size: 55px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin: 15px 0 25px;
+}
 
-        .activity h3 {
-            font-size: 15px;
-            margin-bottom: 4px;
-        }
+.status {
+    font-size: 15px;
+    margin-bottom: 20px;
+    color: #666;
+}
 
-        .activity p {
-            font-size: 12px;
-            color: #777;
-        }
+.buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
 
-        .school {
-            background: #f0fdf4;
-        }
+button {
+    border: none;
+    border-radius: 10px;
+    padding: 13px 18px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
 
-        .school .time {
-            color: #16a34a;
-        }
+#startBtn {
+    background: #2563eb;
+    color: white;
+}
 
-        .break {
-            background: #fffbeb;
-        }
+#pauseBtn {
+    background: #f59e0b;
+    color: white;
+}
 
-        .break .time {
-            color: #d97706;
-        }
+#resetBtn {
+    background: #e5e7eb;
+    color: #222;
+}
 
-        .sleep {
-            background: #f5f3ff;
-        }
+button:active {
+    transform: scale(0.97);
+}
 
-        .sleep .time {
-            color: #7c3aed;
-        }
+.stats {
+    margin-top: 18px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
 
-        .back {
-            display: block;
-            text-align: center;
-            text-decoration: none;
-            background: #2563eb;
-            color: white;
-            padding: 14px;
-            border-radius: 12px;
-            margin-top: 20px;
-            font-weight: bold;
-        }
+.stat-card {
+    background: white;
+    padding: 18px 10px;
+    border-radius: 14px;
+    text-align: center;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+}
 
-        footer {
-            text-align: center;
-            color: #777;
-            font-size: 12px;
-            margin: 25px 0;
-        }
+.stat-card h3 {
+    margin: 0 0 8px;
+    font-size: 15px;
+    color: #666;
+}
 
-        @media (max-width: 500px) {
+.stat-card p {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+}
 
-            header h1 {
-                font-size: 24px;
-            }
+.info {
+    margin-top: 18px;
+    background: #eef2ff;
+    padding: 16px;
+    border-radius: 12px;
+    line-height: 1.6;
+    font-size: 14px;
+}
 
-            .container {
-                width: 94%;
-            }
+@media (max-width: 500px) {
 
-            .row {
-                padding: 15px 12px;
-            }
+    .timer {
+        font-size: 45px;
+    }
 
-            .time {
-                width: 105px;
-                font-size: 11px;
-            }
+    .buttons {
+        flex-direction: column;
+    }
 
-            .activity h3 {
-                font-size: 14px;
-            }
+    button {
+        width: 100%;
+    }
+}
 
-            .activity p {
-                font-size: 11px;
-            }
-        }
-    </style>
+</style>
 </head>
 
 <body>
 
 <header>
-    <h1>📅 Study Timetable</h1>
-    <p>Simple & Effective Daily Routine</p>
+    <h1>⏱️ Study Timer</h1>
+    <p>Focus on your study • Learn With Sam</p>
 </header>
 
-<div class="container">
+<main>
 
-    <div class="intro">
-        <h2>🎯 School Student Routine</h2>
-        <p>School ke saath padhai aur rest ko balance karo.</p>
-    </div>
+    <div class="timer-card">
 
-    <div class="timetable">
-
-        <div class="row">
-            <div class="time">6:00 – 7:00 AM</div>
-            <div class="activity">
-                <h3>📚 Morning Study</h3>
-                <p>Maths / Science</p>
-            </div>
+        <div class="timer-label">
+            📚 Study Session
         </div>
 
-        <div class="row school">
-            <div class="time">8:00 AM – 2:00 PM</div>
-            <div class="activity">
-                <h3>🏫 School</h3>
-                <p>Classes & Learning</p>
-            </div>
+        <div class="timer" id="timer">
+            00:00:00
         </div>
 
-        <div class="row break">
-            <div class="time">2:00 – 3:00 PM</div>
-            <div class="activity">
-                <h3>🍛 Lunch + Rest</h3>
-                <p>Relax & Refresh</p>
-            </div>
+        <div class="status" id="status">
+            Ready to study 🚀
         </div>
 
-        <div class="row">
-            <div class="time">3:00 – 4:00 PM</div>
-            <div class="activity">
-                <h3>📝 Homework</h3>
-                <p>Complete school work</p>
-            </div>
-        </div>
+        <div class="buttons">
 
-        <div class="row break">
-            <div class="time">4:00 – 5:00 PM</div>
-            <div class="activity">
-                <h3>⚽ Break</h3>
-                <p>Play & Relax</p>
-            </div>
-        </div>
+            <button id="startBtn" onclick="startTimer()">
+                ▶️ Start
+            </button>
 
-        <div class="row">
-            <div class="time">5:00 – 7:00 PM</div>
-            <div class="activity">
-                <h3>📖 Study Time</h3>
-                <p>Maths / Science / SST</p>
-            </div>
-        </div>
+            <button id="pauseBtn" onclick="pauseTimer()">
+                ⏸️ Pause
+            </button>
 
-        <div class="row break">
-            <div class="time">7:00 – 8:00 PM</div>
-            <div class="activity">
-                <h3>🍽️ Dinner</h3>
-                <p>Family & Relax</p>
-            </div>
-        </div>
+            <button id="resetBtn" onclick="resetTimer()">
+                🔄 Reset
+            </button>
 
-        <div class="row">
-            <div class="time">8:00 – 9:30 PM</div>
-            <div class="activity">
-                <h3>📚 Study + Revision</h3>
-                <p>Languages + Daily Revision</p>
-            </div>
-        </div>
-
-        <div class="row sleep">
-            <div class="time">10:00 PM</div>
-            <div class="activity">
-                <h3>😴 Sleep</h3>
-                <p>Get proper rest</p>
-            </div>
         </div>
 
     </div>
 
-    <a href="index.html" class="back">
-        ← Back to Home
-    </a>
+    <div class="stats">
 
-</div>
+        <div class="stat-card">
+            <h3>📅 Today's Study</h3>
+            <p id="todayTime">0m</p>
+        </div>
 
-<footer>
-    © 2026 Learn With Sam
-</footer>
+        <div class="stat-card">
+            <h3>🏆 Total Study</h3>
+            <p id="totalTime">0m</p>
+        </div>
+
+    </div>
+
+    <div class="info">
+        💡 <b>Tip:</b> Timer Start karke phone side mein rakho aur
+        bina distraction ke study karo. Tumhara study time automatically save hota rahega.
+    </div>
+
+</main>
+
+<!-- @ts-nocheck -->
+
+<script>
+
+let seconds = 0;
+let interval = null;
+let isRunning = false;
+
+
+/* Saved study data */
+
+let todayStudy =
+    Number(localStorage.getItem("todayStudy")) || 0;
+
+let totalStudy =
+    Number(localStorage.getItem("totalStudy")) || 0;
+
+
+/* Check today's date */
+
+let savedDate =
+    localStorage.getItem("studyDate");
+
+let today =
+    new Date().toDateString();
+
+
+if (savedDate !== today) {
+
+    todayStudy = 0;
+
+    localStorage.setItem("todayStudy", "0");
+
+    localStorage.setItem(
+        "studyDate",
+        today
+    );
+}
+
+
+/* Display timer */
+
+function updateTimer() {
+
+    let hours =
+        Math.floor(seconds / 3600);
+
+    let minutes =
+        Math.floor((seconds % 3600) / 60);
+
+    let secs =
+        seconds % 60;
+
+
+    if (hours < 10) {
+        hours = "0" + hours;
+    }
+
+    if (minutes < 10) {
+        minutes = "0" + minutes;
+    }
+
+    if (secs < 10) {
+        secs = "0" + secs;
+    }
+
+
+    document.getElementById("timer").textContent =
+        hours + ":" + minutes + ":" + secs;
+}
+
+
+/* Start timer */
+
+function startTimer() {
+
+    if (isRunning) {
+        return;
+    }
+
+    isRunning = true;
+
+
+    document.getElementById("status").textContent =
+        "🔥 Study session running... Focus!";
+
+
+    interval = setInterval(function() {
+
+        seconds++;
+
+        todayStudy++;
+        totalStudy++;
+
+
+        updateTimer();
+        updateStats();
+
+
+        localStorage.setItem(
+            "todayStudy",
+            String(todayStudy)
+        );
+
+        localStorage.setItem(
+            "totalStudy",
+            String(totalStudy)
+        );
+
+        localStorage.setItem(
+            "studyDate",
+            today
+        );
+
+    }, 1000);
+}
+
+
+/* Pause timer */
+
+function pauseTimer() {
+
+    if (!isRunning) {
+        return;
+    }
+
+
+    clearInterval(interval);
+
+    interval = null;
+
+    isRunning = false;
+
+
+    document.getElementById("status").textContent =
+        "⏸️ Study paused";
+}
+
+
+/* Reset current session */
+
+function resetTimer() {
+
+    clearInterval(interval);
+
+    interval = null;
+
+    isRunning = false;
+
+    seconds = 0;
+
+
+    updateTimer();
+
+
+    document.getElementById("status").textContent =
+        "Ready to study 🚀";
+}
+
+
+/* Format study time */
+/**
+ * @param {number} totalSeconds
+ */
+function formatTime(totalSeconds) {
+
+    let hours =
+        Math.floor(totalSeconds / 3600);
+
+    let minutes =
+        Math.floor((totalSeconds % 3600) / 60);
+
+
+    if (hours > 0) {
+
+        return hours + "h " + minutes + "m";
+
+    }
+
+
+    return minutes + "m";
+}
+
+
+/* Update statistics */
+
+function updateStats() {
+
+    document.getElementById("todayTime").textContent =
+        formatTime(todayStudy);
+
+    document.getElementById("totalTime").textContent =
+        formatTime(totalStudy);
+}
+
+
+/* Initial display */
+
+updateTimer();
+
+updateStats();
+
+</script>
 
 </body>
 </html>
