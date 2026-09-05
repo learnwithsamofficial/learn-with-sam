@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Study Timer | Learn With Sam</title>
-    <meta name="description" content="Free study timer for students to track daily and total study time on Learn With Sam.">
+
+<meta name="description" content="Free study timer for students to track daily and total study time on Learn With Sam.">
 
 <meta name="robots" content="index, follow">
 
 <link rel="canonical" href="https://learnwithsamofficial.github.io/learn-with-sam/study-timer.html">
 
-
 <style>
+
 * {
     box-sizing: border-box;
 }
@@ -158,6 +160,7 @@ button:active {
         width: 100%;
     }
 }
+
 </style>
 </head>
 
@@ -202,7 +205,6 @@ button:active {
 
     </div>
 
-
     <div class="stats">
 
         <div class="stat-card">
@@ -217,14 +219,12 @@ button:active {
 
     </div>
 
-
     <div class="info">
         💡 <b>Tip:</b> Timer Start karke phone side mein rakho aur
         bina distraction ke study karo. Tumhara study time automatically save hota rahega.
     </div>
 
 </main>
-
 
 <!-- @ts-nocheck -->
 
@@ -387,7 +387,9 @@ function resetTimer() {
 
 
 /* Format study time */
-
+/**
+ * @param {number} totalSeconds
+ */
 function formatTime(totalSeconds) {
 
     let hours =
