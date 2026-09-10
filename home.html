@@ -2,167 +2,1357 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-    <title>Learn With Sam</title>
+    <title>Learn With Sam – Bihar Board Study Material & Learning Tools</title>
 
-    <link rel="stylesheet" href="style.css">
+    <meta name="description"
+          content="Learn With Sam is a student-focused learning platform for Bihar Board students with study materials, notes, important questions, timetable, study timer and progress tracking.">
+
+    <meta name="robots"
+          content="index, follow">
+
+    <meta name="author"
+          content="Learn With Sam">
+
+    <link rel="canonical"
+          href="https://learnwithsamofficial.github.io/learn-with-sam/">
+
+    <!-- Open Graph -->
+    <meta property="og:title"
+          content="Learn With Sam – Bihar Board Study Material & Learning Tools">
+
+    <meta property="og:description"
+          content="Study smarter with study materials, notes, important questions and useful learning tools on Learn With Sam.">
+
+    <meta property="og:type"
+          content="website">
+
+    <meta property="og:url"
+          content="https://learnwithsamofficial.github.io/learn-with-sam/">
+
+    <meta property="og:site_name"
+          content="Learn With Sam">
+
+    <meta name="theme-color"
+          content="#2563eb">
+
+
+    <!-- Website Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Learn With Sam",
+        "alternateName": "Learn With Sam Official",
+        "url": "https://learnwithsamofficial.github.io/learn-with-sam/"
+    }
+    </script>
+
+
+    <!-- Organization Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Learn With Sam",
+        "alternateName": "Learn With Sam Official",
+        "url": "https://learnwithsamofficial.github.io/learn-with-sam/",
+        "description": "Student-focused educational platform providing Bihar Board study materials, notes, important questions and useful learning tools."
+    }
+    </script>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: #f7faff;
+
+            color: #172033;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================== */
+
+        header {
+            background: rgba(255,255,255,0.97);
+
+            border-bottom:
+                1px solid #e6ebf2;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 100;
+
+            backdrop-filter: blur(10px);
+        }
+
+        .nav {
+            max-width: 1100px;
+
+            margin: auto;
+
+            padding:
+                17px 20px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+        }
+
+        .brand {
+            color: #172033;
+
+            text-decoration: none;
+
+            font-size: 21px;
+
+            font-weight: 800;
+
+            white-space: nowrap;
+        }
+
+        .brand span {
+            color: #2563eb;
+        }
+
+        .nav-links {
+            display: flex;
+
+            align-items: center;
+
+            gap: 18px;
+        }
+
+        .nav-links a {
+            color: #596579;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            font-weight: 600;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            max-width: 1100px;
+
+            margin: auto;
+
+            padding:
+                80px 20px
+                70px;
+
+            display: grid;
+
+            grid-template-columns:
+                1.1fr
+                0.9fr;
+
+            gap: 55px;
+
+            align-items: center;
+        }
+
+        .badge {
+            display: inline-block;
+
+            background: #eaf2ff;
+
+            color: #2563eb;
+
+            padding:
+                7px 13px;
+
+            border-radius: 30px;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            margin-bottom: 18px;
+        }
+
+        h1 {
+            font-size:
+                clamp(38px, 6vw, 60px);
+
+            line-height: 1.08;
+
+            letter-spacing: -1.5px;
+
+            color: #111827;
+
+            margin-bottom: 22px;
+        }
+
+        h1 span {
+            color: #2563eb;
+        }
+
+        .hero-text {
+            max-width: 650px;
+
+            color: #667085;
+
+            font-size: 17px;
+
+            line-height: 1.8;
+
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+        }
+
+        .primary-btn,
+        .secondary-btn {
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            min-height: 48px;
+
+            padding:
+                12px 22px;
+
+            border-radius: 12px;
+
+            text-decoration: none;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            transition: 0.2s;
+        }
+
+        .primary-btn {
+            background: #2563eb;
+
+            color: #ffffff;
+
+            box-shadow:
+                0 8px 22px
+                rgba(37,99,235,0.20);
+        }
+
+        .secondary-btn {
+            background: #ffffff;
+
+            color: #2563eb;
+
+            border:
+                1px solid #dce5f2;
+        }
+
+        .primary-btn:hover,
+        .secondary-btn:hover {
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           DASHBOARD PREVIEW
+        ========================== */
+
+        .preview {
+            background: #ffffff;
+
+            border:
+                1px solid #e4eaf2;
+
+            border-radius: 24px;
+
+            padding: 24px;
+
+            box-shadow:
+                0 20px 55px
+                rgba(25,45,85,0.10);
+        }
+
+        .preview-header {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 20px;
+        }
+
+        .preview-header strong {
+            font-size: 18px;
+        }
+
+        .status-dot {
+            width: 10px;
+
+            height: 10px;
+
+            border-radius: 50%;
+
+            background: #22c55e;
+        }
+
+        .preview-card {
+            background: #f7faff;
+
+            border:
+                1px solid #edf1f7;
+
+            border-radius: 16px;
+
+            padding: 18px;
+
+            margin-bottom: 12px;
+        }
+
+        .preview-card strong {
+            display: block;
+
+            font-size: 15px;
+
+            margin-bottom: 5px;
+        }
+
+        .preview-card p {
+            color: #748094;
+
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           COMMON SECTION
+        ========================== */
+
+        .section {
+            max-width: 1100px;
+
+            margin: auto;
+
+            padding:
+                60px 20px;
+        }
+
+        .section-heading {
+            text-align: center;
+
+            max-width: 700px;
+
+            margin:
+                0 auto 38px;
+        }
+
+        .section-heading h2 {
+            color: #111827;
+
+            font-size: 32px;
+
+            margin-bottom: 10px;
+        }
+
+        .section-heading p {
+            color: #718096;
+
+            font-size: 15px;
+        }
+
+
+        /* =========================
+           MAIN FEATURES
+        ========================== */
+
+        .features {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .feature-card {
+            background: #ffffff;
+
+            border:
+                1px solid #e5eaf2;
+
+            border-radius: 20px;
+
+            padding: 27px;
+
+            transition: 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 15px 35px
+                rgba(25,45,85,0.08);
+        }
+
+        .feature-icon {
+            width: 50px;
+
+            height: 50px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #edf4ff;
+
+            border-radius: 14px;
+
+            font-size: 23px;
+
+            margin-bottom: 17px;
+        }
+
+        .feature-card h3 {
+            font-size: 19px;
+
+            margin-bottom: 8px;
+        }
+
+        .feature-card p {
+            color: #718096;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+        }
+
+        .feature-card a {
+            display: inline-block;
+
+            margin-top: 15px;
+
+            color: #2563eb;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            font-weight: 700;
+        }
+
+
+        /* =========================
+           STUDY RESOURCES
+        ========================== */
+
+        .resources-section {
+            background: #ffffff;
+
+            border-top:
+                1px solid #edf1f7;
+
+            border-bottom:
+                1px solid #edf1f7;
+        }
+
+        .resource-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+        .resource-card {
+            background: #f8faff;
+
+            border:
+                1px solid #e5eaf2;
+
+            border-radius: 18px;
+
+            padding: 23px;
+        }
+
+        .resource-card h3 {
+            font-size: 18px;
+
+            margin-bottom: 8px;
+        }
+
+        .resource-card p {
+            color: #718096;
+
+            font-size: 14px;
+
+            margin-bottom: 15px;
+        }
+
+        .resource-card a {
+            color: #2563eb;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            font-weight: 700;
+        }
+
+
+        /* =========================
+           WHY LEARN WITH SAM
+        ========================== */
+
+        .why-box {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 18px;
+        }
+
+        .why-card {
+            background: #ffffff;
+
+            border:
+                1px solid #e5eaf2;
+
+            border-radius: 18px;
+
+            padding: 23px;
+        }
+
+        .why-card h3 {
+            font-size: 17px;
+
+            margin-bottom: 7px;
+        }
+
+        .why-card p {
+            color: #718096;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           CTA
+        ========================== */
+
+        .cta {
+            max-width: 1000px;
+
+            margin:
+                30px auto 70px;
+
+            padding:
+                45px 25px;
+
+            text-align: center;
+
+            border-radius: 25px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #eff6ff,
+                    #f5f3ff
+                );
+
+            border:
+                1px solid #e2e8f5;
+        }
+
+        .cta h2 {
+            font-size: 30px;
+
+            margin-bottom: 10px;
+        }
+
+        .cta p {
+            max-width: 650px;
+
+            margin:
+                0 auto 23px;
+
+            color: #69768a;
+
+            font-size: 15px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            text-align: center;
+
+            padding:
+                30px 20px;
+
+            background: #ffffff;
+
+            border-top:
+                1px solid #e5eaf2;
+
+            color: #7b8494;
+
+            font-size: 13px;
+
+            line-height: 1.8;
+        }
+
+        footer p {
+            margin: 6px 0;
+        }
+
+        footer p:first-child {
+            color: #172033;
+
+            font-size: 15px;
+
+            font-weight: 700;
+        }
+
+        footer a {
+            color: #2563eb;
+
+            text-decoration: none;
+
+            font-weight: 600;
+
+            margin: 0 3px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        footer p:last-child {
+            color: #98a2b3;
+
+            font-size: 12px;
+
+            margin-top: 10px;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 800px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+
+                padding-top: 55px;
+
+                gap: 35px;
+            }
+
+            .features,
+            .resource-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .why-box {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            .nav {
+                padding:
+                    15px;
+            }
+
+            .brand {
+                font-size: 19px;
+            }
+
+            .hero {
+                padding:
+                    48px 16px
+                    45px;
+            }
+
+            h1 {
+                font-size: 40px;
+
+                letter-spacing: -1px;
+            }
+
+            .hero-text {
+                font-size: 15px;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+
+            .primary-btn,
+            .secondary-btn {
+                width: 100%;
+            }
+
+            .preview {
+                padding: 18px;
+
+                border-radius: 20px;
+            }
+
+            .section {
+                padding:
+                    50px 16px;
+            }
+
+            .section-heading h2 {
+                font-size: 27px;
+            }
+
+            .cta {
+                margin:
+                    20px 16px 45px;
+
+                padding:
+                    35px 20px;
+            }
+
+            .cta h2 {
+                font-size: 26px;
+            }
+
+            footer {
+                padding:
+                    27px 15px;
+            }
+
+            footer a {
+                display: inline-block;
+
+                margin:
+                    2px 4px;
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
-<header class="home-header">
 
-    <div>
-        <h1>📚 Learn With Sam</h1>
-        <p>Learn Better. Study Smarter.</p>
-    </div>
+    <!-- HEADER -->
 
-</header>
+    <header>
 
+        <nav class="nav"
+             aria-label="Main navigation">
 
-<main class="home-container">
+            <a href="./"
+               class="brand"
+               aria-label="Learn With Sam Home">
 
-    <!-- Books -->
-    <div class="feature">
-        <div class="feature-icon">📚</div>
+                Learn With <span>Sam</span>
 
-        <h2>Books & PDFs</h2>
-
-        <p>Class 6 to 12 study material</p>
-
-        <a href="books.html">
-            <button>Open Books</button>
-        </a>
-    </div>
+            </a>
 
 
-    <!-- Study Timer -->
-    <div class="feature">
+            <div class="nav-links">
 
-        <div class="feature-icon">⏱️</div>
+                <a href="home.html">
+                    Home
+                </a>
 
-        <h2>Study Timer</h2>
+                <a href="books.html">
+                    Books & PDFs
+                </a>
+
+                <a href="study-timer.html">
+                    Study Timer
+                </a>
+
+                <a href="timetable.html">
+                    Timetable
+                </a>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <div>
+
+                <span class="badge">
+                    🎓 Smart Learning Platform
+                </span>
+
+
+                <h1>
+                    Learn Better.
+                    <span>Study Smarter.</span>
+                </h1>
+
+
+                <p class="hero-text">
+
+                    Welcome to
+                    <strong>Learn With Sam</strong> —
+                    a student-focused learning platform
+                    designed to make study preparation
+                    simpler, smarter and more organized.
+
+                    Explore study materials, notes,
+                    important questions and useful
+                    learning tools in one place.
+
+                </p>
+
+
+                <div class="buttons">
+
+                    <a href="home.html"
+                       class="primary-btn">
+
+                        Get Started →
+
+                    </a>
+
+
+                    <a href="books.html"
+                       class="secondary-btn">
+
+                        Explore Materials
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- PLATFORM PREVIEW -->
+
+            <div class="preview">
+
+                <div class="preview-header">
+
+                    <strong>
+                        Learn With Sam
+                    </strong>
+
+                    <span class="status-dot"
+                          aria-hidden="true">
+                    </span>
+
+                </div>
+
+
+                <div class="preview-card">
+
+                    <strong>
+                        📚 Study Materials
+                    </strong>
+
+                    <p>
+                        Books, notes and useful
+                        educational resources.
+                    </p>
+
+                </div>
+
+
+                <div class="preview-card">
+
+                    <strong>
+                        ⏱️ Study Timer
+                    </strong>
+
+                    <p>
+                        Track your study sessions
+                        and build consistency.
+                    </p>
+
+                </div>
+
+
+                <div class="preview-card">
+
+                    <strong>
+                        📊 Progress Tracking
+                    </strong>
+
+                    <p>
+                        Organize your study journey
+                        and monitor your progress.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FEATURES -->
+
+        <section class="section">
+
+            <div class="section-heading">
+
+                <h2>
+                    Learn With Sam
+                </h2>
+
+                <p>
+                    Useful study resources and simple
+                    tools to help students prepare better.
+                </p>
+
+            </div>
+
+
+            <div class="features">
+
+
+                <article class="feature-card">
+
+                    <div class="feature-icon">
+                        📚
+                    </div>
+
+                    <h3>
+                        Books & PDFs
+                    </h3>
+
+                    <p>
+                        Explore educational books,
+                        study materials and useful
+                        resources for different classes.
+                    </p>
+
+                    <a href="books.html">
+                        Explore Books →
+                    </a>
+
+                </article>
+
+
+                <article class="feature-card">
+
+                    <div class="feature-icon">
+                        📝
+                    </div>
+
+                    <h3>
+                        Notes & Questions
+                    </h3>
+
+                    <p>
+                        Find notes, important questions
+                        and practice resources to support
+                        your preparation.
+                    </p>
+
+                    <a href="books.html">
+                        Explore Resources →
+                    </a>
+
+                </article>
+
+
+                <article class="feature-card">
+
+                    <div class="feature-icon">
+                        🎯
+                    </div>
+
+                    <h3>
+                        Smart Study Tools
+                    </h3>
+
+                    <p>
+                        Use the study timer, timetable
+                        and progress tools to organize
+                        your study routine.
+                    </p>
+
+                    <a href="home.html">
+                        Open Study Tools →
+                    </a>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+        
+<!-- RESOURCES -->
+
+        <section class="resources-section">
+
+            <div class="section">
+
+
+                <div class="section-heading">
+
+                    <h2>
+                        Study Resources
+                    </h2>
+
+                    <p>
+                        Everything is organized to make
+                        your study preparation easier.
+                    </p>
+
+                </div>
+
+
+                <div class="resource-grid">
+
+
+                    <article class="resource-card">
+
+                        <h3>
+                            📖 Books & PDFs
+                        </h3>
+
+                        <p>
+                            Browse available study material
+                            and educational resources.
+                        </p>
+
+                        <a href="books.html">
+                            Open Books & PDFs →
+                        </a>
+
+                    </article>
+
+
+                    <article class="resource-card">
+
+                        <h3>
+                            ⏱️ Study Timer
+                        </h3>
+
+                        <p>
+                            Track your daily and total
+                            study time.
+                        </p>
+
+                        <a href="study-timer.html">
+                            Start Study Timer →
+                        </a>
+
+                    </article>
+
+
+                    <article class="resource-card">
+
+                        <h3>
+                            🗓️ Timetable
+                        </h3>
+
+                        <p>
+                            Follow a structured timetable
+                            and manage your study time.
+                        </p>
+
+                        <a href="timetable.html">
+                            View Timetable →
+                        </a>
+
+                    </article>
+
+                    
+                    <article class="resource-card">
+
+                        <h3>
+                            📊 Progress
+                        </h3>
+
+                        <p>
+                            Keep track of your learning
+                            progress and completed chapters.
+                        </p>
+
+                        <a href="progress.html">
+                            View Progress →
+                        </a>
+
+                    </article>
+
+
+                    <article class="resource-card">
+
+                        <h3>
+                            🎓 Classes & Subjects
+                        </h3>
+
+                        <p>
+                            Explore available classes,
+                            subjects and study resources.
+                        </p>
+
+                        <a href="class10.html">
+                            Explore Classes →
+                        </a>
+
+                    </article>
+
+
+                    <article class="resource-card">
+
+                        <h3>
+                            🏠 Study Dashboard
+                        </h3>
+
+                        <p>
+                            Open the Learn With Sam
+                            study dashboard.
+                        </p>
+
+                        <a href="home.html">
+                            Open Dashboard →
+                        </a>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- WHY LEARN WITH SAM -->
+        <section class="section">
+
+            <div class="section-heading">
+
+                <h2>
+                    Why Learn With Sam?
+                </h2>
+
+                <p>
+                    Built with students in mind.
+                </p>
+
+            </div>
+
+
+            <div class="why-box">
+
+
+                <article class="why-card">
+
+                    <h3>
+                        📚 Organized Learning
+                    </h3>
+
+                    <p>
+                        Keep study materials and useful
+                        learning resources organized in
+                        one place.
+                    </p>
+
+                </article>
+
+
+                <article class="why-card">
+
+                    <h3>
+                        ⏱️ Better Time Management
+                    </h3>
+
+                    <p>
+                        Use study planning and timing tools
+                        to make your study routine more consistent.
+                    </p>
+
+                </article>
+
+
+                <article class="why-card">
+
+                    <h3>
+                        📝 Practice & Revision
+                    </h3>
+
+                    <p>
+                        Use notes, important questions and
+                        practice resources for revision.
+                    </p>
+
+                </article>
+
+
+                <article class="why-card">
+
+                    <h3>
+                        📈 Track Your Progress
+                    </h3>
+
+                    <p>
+                        Monitor your progress and stay
+                        motivated throughout your preparation.
+                    </p>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- CTA -->
+
+        <section class="cta">
+
+            <h2>
+                Ready to Start Learning?
+            </h2>
+
+            <p>
+                Explore Learn With Sam and make your
+                study preparation more organized.
+            </p>
+
+            <a href="home.html"
+               class="primary-btn">
+
+                Get Started →
+
+            </a>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
 
         <p>
-            Track your study time
+            © 2026 Learn With Sam
         </p>
-
-        <a href="study-timer.html">
-            <button>Start Timer</button>
-        </a>
-
-    </div>
-
-
-    <!-- Timetable -->
-    <div class="feature">
-
-        <div class="feature-icon">📅</div>
-
-        <h2>Timetable</h2>
 
         <p>
-            Plan your daily study
+
+            <a href="./">
+                Home
+            </a>
+
+            |
+
+            <a href="about.html">
+                About Us
+            </a>
+
+            |
+
+            <a href="privacy-policy.html">
+                Privacy Policy
+            </a>
+
+            |
+
+            <a href="terms.html">
+                Terms & Conditions
+            </a>
+
+            |
+
+            <a href="contact.html">
+                Contact Us
+            </a>
+
         </p>
-
-        <a href="timetable.html">
-            <button>View Timetable</button>
-        </a>
-
-    </div>
-
-
-    <!-- Important Questions -->
-    <div class="feature">
-
-        <div class="feature-icon">📝</div>
-
-        <h2>Important Questions</h2>
 
         <p>
-            Practice important questions
+            Learn Better • Study Smarter • Achieve More
         </p>
 
-        <a href="books.html">
-            <button>View Questions</button>
-        </a>
+    </footer>
 
-    </div>
-
-
-    <!-- Progress -->
-    <div class="feature">
-
-        <div class="feature-icon">📊</div>
-
-        <h2>My Progress</h2>
-
-        <p>
-            Track your learning progress
-        </p>
-
-        <a href="progress.html">
-            <button>View Progress</button>
-        </a>
-
-    </div>
-
-
-    <!-- App -->
-    <div class="feature">
-
-        <div class="feature-icon">📱</div>
-
-        <h2>Learn With Sam App</h2>
-
-        <p>
-            Use Learn With Sam on Android
-        </p>
-
-        <button onclick="showAppMessage()">
-            Learn More
-        </button>
-
-    </div>
-
-</main>
-
-
-<footer>
-    <p>
-        © 2026 Learn With Sam
-    </p>
-
-    <p>
-        <a href="privacy-policy.html">Privacy Policy</a> |
-        <a href="terms.html">Terms & Conditions</a> |
-        <a href="contact.html">Contact Us</a>
-    </p>
-
-    <p>
-        Learn Better • Study Smarter • Achieve More
-    </p>
-</footer>
-
-
-<script>
-
-function showAppMessage() {
-
-    alert(
-        "Learn With Sam Android App coming soon! 📱"
-    );
-
-}
-
-</script>
 
 </body>
 
 </html>
+        
+                
